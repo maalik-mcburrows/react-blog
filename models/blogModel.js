@@ -10,10 +10,9 @@ class blogModel {
 
     static async getAllBlogPosts() {
         try {
-            const response = await db.any('SELECT * FROM blog;');
-            const data = await response.json()
-            console.log(data);
-            return data;
+            const response = await db.any(`SELECT * FROM blog;`);
+            console.log(response);
+            return response;
         } catch(error) {
             console.log('ERROR: ', error)
         }

@@ -6,9 +6,11 @@ const es6Renderer = require('express-es6-template-engine');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const blogRouter = require('./routes/blogs');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
