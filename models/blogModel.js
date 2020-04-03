@@ -1,7 +1,8 @@
 const db = require('./conn');
 
 class blogModel {
-    constructor(title, name, entry, userid) {
+    constructor(id, title, name, entry, userid) {
+        this.id = id;
         this.title = title;
         this.name = name;
         this.entry= entry;
@@ -10,13 +11,35 @@ class blogModel {
 
     static async getAllBlogData() {
         try {
-            const response = await db.any(`SELECT * FROM blog INNER JOIN comments ON blogid = blog.id;`);
+            const response = await db.any(`SELECT * FROM blog;`);
             console.log(response);
             return response;
         } catch(error) {
             console.log('ERROR: ', error)
         }
     }
+
+    static async getSingleBlog(id) {
+        try {
+            const response = await db.any(`SELECT * FROM blog WHERE id = $1`, id)
+            console.log(response);
+            return response;
+        } catch(error) {
+            console.log('ERROR: ', error)
+        }
+    }
+
+    static async getBlogComments(id) {
+        try {
+            const response = await db.any(`SELECT * FROM comments WHERE blogid = $1`, id)
+            console.log(response);
+            return (response);
+        } catch(error) {
+            console.log('ERROR: ', error);
+        }
+    }
+
+    
 
 };
 
