@@ -8,15 +8,16 @@ class blogModel {
         this.userid = userid;
     }
 
-    static async getAllBlogPosts() {
+    static async getAllBlogData() {
         try {
-            const response = await db.any(`SELECT * FROM blog;`);
+            const response = await db.any(`SELECT * FROM blog INNER JOIN comments ON blogid = blog.id;`);
             console.log(response);
             return response;
         } catch(error) {
             console.log('ERROR: ', error)
         }
     }
+
 };
 
 module.exports = blogModel;
