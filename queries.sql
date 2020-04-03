@@ -12,6 +12,5 @@ CREATE TABLE blog (id serial PRIMARY KEY,
 INSERT INTO blog (name, title, entry, userid) 
 VALUES ('Maalik', '04-02', 'Super boring, but at least I have code, twitter, and PS4 lol', 1);
 
-INSERT INTO blog (userid) 
-VALUES (1);
+
 
