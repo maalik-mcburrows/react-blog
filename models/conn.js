@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 const pgp = require('pg-promise')({
     query: function(e) {
@@ -7,8 +6,8 @@ const pgp = require('pg-promise')({
 });
 
 const options = {
-    host: process.env['DB_HOST'],
-    database: process.env['DB_NAME']
+    host: 'localhost',
+    database: 'coronablog'
 };
 
 const db = pgp(options);

@@ -19,7 +19,7 @@ router.get('/:id?/comments', async (req, res) => {
     const {
         id
     } = req.params;
-    const response = await blogModel.getSingleComment(id);
+    const response = await blogModel.getBlogComments(id);
     res.json(response).status(200);
 })
 
