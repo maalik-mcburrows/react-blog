@@ -31,7 +31,7 @@ class blogModel {
 
     static async getBlogComments(id) {
         try {
-            const response = await db.any(`SELECT * FROM comments WHERE blogid = ${id}`)
+            const response = await db.any(`SELECT * FROM comments WHERE blogid = $1`, id)
             console.log(response);
             return (response);
         } catch(error) {
